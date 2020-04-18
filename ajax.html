@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+     $(function(){
+       $('#con').on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+          type:'post',
+          url:'post.php',
+          data:$('form').serialize(),
+          success:function (){
+            Swal.fire({
+            icon:'success',
+            title:'Success',
+            showConfirmButton: false,
+            timer: 1500
+            })
+          }
+        })
+       })
+     })
+    </script>
+  </head>
+  <body>
+    <form id="con">
+      <input type="text" name="name" value="" required><br>
+      <input type="text" name="middle" value="" required><br>
+      <input type="text" name="mobile" value="" required><br>
+      <input name="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>
